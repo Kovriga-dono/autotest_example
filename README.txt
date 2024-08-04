@@ -7,4 +7,4 @@ pip install -r requirements.txt
 pytest -v -s --alluredir results
 
 для выгрузки allure отчета необходимо вызвать в терминале следующую команду:
-allure serve result
+allure serve results
