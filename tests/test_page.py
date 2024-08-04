@@ -9,17 +9,15 @@ import os
 @allure.feature('autotest example')
 @allure.story('filling Chrome')
 def test_fill_contact(browser):
+    with allure.step('open Chrome'):
     # открываем браузер
-    with allure.step('open browser Chrome'):
         main_page = pages.main_page.MainPage(browser)
         # переходим на тестируемую страницу
-    with allure.step('open page'):
-        main_page.open()
+    main_page.open()
     # заполняем данные контакта; создаем контакт; проверяем счетчик
-    with allure.step('filling data'):
-        main_pageс = pages.main_page.MainPage(browser)
-        main_pageс.fill_contact_page()
-    with allure.step('close browser'):
+    main_pageс = pages.main_page.MainPage(browser)
+    main_pageс.fill_contact_page()
+    with allure.step('browser closed'):
         browser.quit()
 
 # запускает тест для браузера FireFox
@@ -28,11 +26,9 @@ def test_fill_contact(browser):
 def test_fill_contact_f(browser_f):
     with allure.step('open browser FireFox'):
         main_page = pages.main_page.MainPage(browser_f)
-    with allure.step('open page'):
-        main_page.open()
-    with allure.step('filling data'):
-        main_pagef = pages.main_page.MainPage(browser_f)
-        main_pagef.fill_contact_page()
+    main_page.open()
+    main_pagef = pages.main_page.MainPage(browser_f)
+    main_pagef.fill_contact_page()
     with allure.step('close browser'):
         browser_f.quit()
 
@@ -44,25 +40,22 @@ if os.name == 'nt':
     def test_fill_contact_e(browser_e):
         with allure.step('open browser Edge'):
             main_page = pages.main_page.MainPage(browser_e)
-        with allure.step('open page'):
-            main_page.open()
-        with allure.step('filling data'):
-            main_pagee = pages.main_page.MainPage(browser_e)
-            main_pagee.fill_contact_page()
+        main_page.open()
+        main_pagee = pages.main_page.MainPage(browser_e)
+        main_pagee.fill_contact_page()
         with allure.step('close browser'):
             browser_e.quit()
+
 #Safari тестируем только в MacOS
 elif os.name == 'mac':
     # запускает тест для браузера EDGE
     @allure.feature('autotest example')
-    @allure.story('filling Edge')
+    @allure.story('filling Safari')
     def test_fill_contact_m(browser_m):
-        with allure.step('open browser Edge'):
+        with allure.step('open Safari'):
             main_page = pages.main_page.MainPage(browser_m)
-        with allure.step('open page'):
-            main_page.open()
-        with allure.step('filling data'):
-            main_pagee = pages.main_page.MainPage(browser_m)
-            main_pagee.fill_contact_page()
+        main_page.open()
+        main_pagem = pages.main_page.MainPage(browser_m)
+        main_pagem.fill_contact_page()
         with allure.step('close browser'):
             browser_m.quit()
