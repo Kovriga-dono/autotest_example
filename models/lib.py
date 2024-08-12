@@ -41,4 +41,4 @@ contact = Fields(Filling.letters(5),
                  Filling.categ(),
                  Filling.numbers(8),
                  "June 11, 2001")
-# (корректно сгенерировать дату по нужному формату пока не получается)
+
